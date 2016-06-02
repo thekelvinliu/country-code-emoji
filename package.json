@@ -2,7 +2,7 @@
   "name": "country-code-emoji",
   "version": "0.0.1",
   "description": "convert country codes (ISO 3166-1 alpha-2) to corresponding emoji flags (unicode regional indicator symbols)",
-  "main": "dist/index.js",
+  "main": "build/index.js",
   "scripts": {
     "test": "gulp test"
   },
@@ -27,5 +27,17 @@
   "bugs": {
     "url": "https://github.com/thekelvinliu/country-code-emoji/issues"
   },
-  "homepage": "https://github.com/thekelvinliu/country-code-emoji#readme"
+  "homepage": "https://github.com/thekelvinliu/country-code-emoji#readme",
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-eslint": "^6.0.4",
+    "babel-preset-es2015": "^6.9.0",
+    "del": "^2.2.0",
+    "eslint": "^2.11.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-changed": "^1.3.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-load-plugins": "^1.2.4"
+  }
 }
