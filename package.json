@@ -4,6 +4,8 @@
   "description": "convert country codes (ISO 3166-1 alpha-2) to corresponding emoji flags (unicode regional indicator symbols)",
   "main": "build/index.js",
   "scripts": {
+    "compile": "gulp build",
+    "prepublish": "npm run compile",
     "test": "gulp test"
   },
   "repository": {
