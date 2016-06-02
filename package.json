@@ -41,7 +41,6 @@
     "gulp-eslint": "^2.0.0",
     "gulp-load-plugins": "^1.2.4",
     "gulp-mocha": "^2.2.0",
-    "gulp-plumber": "^1.1.0",
     "gulp-print": "^2.0.1",
     "gulp-util": "^3.0.7"
   }

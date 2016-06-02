@@ -41,9 +41,6 @@ gulp.task('babel', ['lint'], () =>
 const lintTask = (src) =>
   () =>
     gulp.src(src)
-      .pipe($.plumber({
-        errorHandler: function(err) { this.emit('end'); }
-      }))
       .pipe($.eslint())
       .pipe($.eslint.format())
       .pipe($.eslint.failAfterError());
