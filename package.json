@@ -1,0 +1,31 @@
+{
+  "name": "country-code-emoji",
+  "version": "0.0.1",
+  "description": "convert country codes (ISO 3166-1 alpha-2) to corresponding emoji flags (unicode regional indicator symbols)",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thekelvinliu/country-code-emoji.git"
+  },
+  "keywords": [
+    "country",
+    "code",
+    "emoji",
+    "flag",
+    "ISO",
+    "3166-1",
+    "alpha-2",
+    "regional",
+    "indicator",
+    "symbols"
+  ],
+  "author": "Kelvin Liu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thekelvinliu/country-code-emoji/issues"
+  },
+  "homepage": "https://github.com/thekelvinliu/country-code-emoji#readme"
+}
