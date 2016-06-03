@@ -35,11 +35,13 @@ describe('string input', () => {
 
 describe('non-string input', () => {
   it('should throw a TypeError', () => {
-    expect(() => { flag(); }).to.throw(TypeError);
-    expect(() => { flag(true); }).to.throw(TypeError);
-    expect(() => { flag(false); }).to.throw(TypeError);
-    expect(() => { flag(null); }).to.throw(TypeError);
-    expect(() => { flag(100); }).to.throw(TypeError);
-    expect(() => { flag({}); }).to.throw(TypeError);
+    const empty = {};
+    [true, false, null, 100, empty, empty.some_key]
+      .map(e => (() => {
+        flag(e);
+      }))
+      .forEach(fn => {
+        expect(fn).to.throw(TypeError);
+      });
   });
 });
