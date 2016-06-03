@@ -33,7 +33,7 @@ To keep things simple, if `country_code` a two letter string, but not an actual 
 the regional indicator symbols corresponding to the letters in `country_code` are returned.
 ```es6
 import { flag } from 'country-code-emoji';
-flag(); // returns TypeError
+flag(); // throws TypeError
 ['Us', 'uS', 'us'].every(e => flag(e) === flag('US')); // returns true
 flag('UK'); // returns '🇺🇰'
 ```
