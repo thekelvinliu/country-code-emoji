@@ -1,8 +1,7 @@
+cache: yarn
 language: node_js
 node_js:
-  - "6"
-  - "5"
-  - "4"
-before_script:
-  - npm install -g gulp
-script: gulp test
+  - node
+  - lts/dubnium
+  - lts/carbon
+  - lts/boron
