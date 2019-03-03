@@ -1,17 +1,24 @@
-'use strict';
+// country code regex
+const CC_REGEX = /^[a-z]{2}$/i;
 
-// decimal offset between ASCII capitals and regional indicator symbols
+// offset between uppercase ascii and regional indicator symbols
 const OFFSET = 127397;
 
-// module exposes a single function
-export function flag(country_code) {
-  // only allow string input
-  if (typeof country_code !== 'string')
-    throw new TypeError('argument must be a string');
-  // ensure country code is all caps
-  const cc = country_code.toUpperCase();
-  // return the emoji flag corresponding to country_code or null
-  return (/^[A-Z]{2}$/.test(cc))
-    ? String.fromCodePoint(...[...cc].map(c => c.charCodeAt() + OFFSET))
-    : null;
+/**
+ * convert country code to corresponding emoji flag
+ * @param {string} cc - country code string
+ * @returns {string} country code emoji
+ */
+export default function countryCodeEmoji(cc) {
+  if (!CC_REGEX.test(cc)) {
+    const type = typeof cc;
+    throw new TypeError(
+      `cc argument must be an ISO 3166-1 alpha-2 string, but got '${
+        type === 'string' ? cc : type
+      }' instead.`,
+    );
+  }
+
+  const chars = [...cc.toUpperCase()].map(c => c.charCodeAt() + OFFSET);
+  return String.fromCodePoint(...chars);
 }
