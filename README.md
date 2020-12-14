@@ -2,14 +2,11 @@
 
 convert country codes (ISO 3166-1 alpha-2) to corresponding emoji flags (unicode regional indicator symbols)
 
-[![Build Status](https://travis-ci.org/thekelvinliu/country-code-emoji.svg?branch=master)](https://travis-ci.org/thekelvinliu/country-code-emoji)
-
 ## about
 
 this is a completely dependency-free module to convert ascii letters to regional indicator symbols;
 for valid country codes, this results in that country's emoji flag.
-commonjs, es module, and umd (transpiled to es5) builds are available
-via `package.json`'s **main**, **module**, and **browser** properties, respectively.
+commonjs and es module builds are available via `package.json`'s **main** and **module**.
 it relies on `String.fromCodePoint` internally, but does not provide any polyfills.
 if your environment does not support `String.fromCodePoint`,
 grab a polyfill like [this one from mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint#Polyfill).
@@ -28,7 +25,7 @@ yarn add country-code-emoji
 
 ```javascript
 // commonjs module
-const flag = require('country-code-emoji');
+const { default: flag } = require('country-code-emoji');
 flag('US'); // returns '🇺🇸'
 
 // es module
