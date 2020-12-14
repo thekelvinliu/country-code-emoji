@@ -1,7 +1,0 @@
-cache: yarn
-language: node_js
-node_js:
-  - node
-  - lts/dubnium
-  - lts/carbon
-  - lts/boron
