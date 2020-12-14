@@ -9,7 +9,7 @@ const OFFSET = 127397;
  * @param {string} cc - country code string
  * @returns {string} country code emoji
  */
-export default function countryCodeEmoji(cc) {
+export function countryCodeEmoji(cc) {
   if (!CC_REGEX.test(cc)) {
     const type = typeof cc;
     throw new TypeError(
@@ -22,3 +22,5 @@ export default function countryCodeEmoji(cc) {
   const chars = [...cc.toUpperCase()].map(c => c.charCodeAt() + OFFSET);
   return String.fromCodePoint(...chars);
 }
+
+export default countryCodeEmoji;
