@@ -1,6 +1,6 @@
 {
   "name": "country-code-emoji",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "convert country codes (ISO 3166-1 alpha-2) to corresponding emoji flags (unicode regional indicator symbols)",
   "main": "lib/index.js",
   "repository": "github:thekelvinliu/country-code-emoji",
