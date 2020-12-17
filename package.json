@@ -7,6 +7,7 @@
   "author": "kelvin liu <kelvin@thekelvinliu.com>",
   "license": "MIT",
   "module": "src/index.js",
+  "types": "types/index.d.ts",
   "exports": {
     "import": "./src/index.js",
     "require": "./lib/index.js"
@@ -17,11 +18,12 @@
   },
   "scripts": {
     "build": "esbuild src/index.js --format=cjs --outdir=lib --target=node10",
-    "clean": "rm -rf coverage lib",
+    "clean": "rm -rf coverage lib types",
     "lint": "eslint .",
-    "prepublish": "yarn build",
+    "prepublishOnly": "yarn build && yarn types",
     "reset": "rm -rf node_modules package-lock.json yarn.lock",
-    "test": "jest"
+    "test": "jest",
+    "types": "tsc"
   },
   "devDependencies": {
     "esbuild": "^0.8.22",
@@ -34,11 +36,13 @@
     "husky": "^4.3.6",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.3",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.3"
   },
   "files": [
     "lib",
-    "src"
+    "src",
+    "types"
   ],
   "keywords": [
     "country",
