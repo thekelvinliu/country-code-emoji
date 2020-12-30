@@ -1,13 +1,16 @@
 // country code regex
 const CC_REGEX = /^[a-z]{2}$/i;
 
+// flag emoji use 2 regional indicator symbols, and each symbol is 2 chars
+const FLAG_LENGTH = 4;
+
 // offset between uppercase ascii and regional indicator symbols
 const OFFSET = 127397;
 
 /**
- * convert country code to corresponding emoji flag
+ * convert country code to corresponding flag emoji
  * @param {string} cc - country code string
- * @returns {string} country code emoji
+ * @returns {string} flag emoji
  */
 export function countryCodeEmoji(cc) {
   if (!CC_REGEX.test(cc)) {
@@ -19,8 +22,27 @@ export function countryCodeEmoji(cc) {
     );
   }
 
-  const chars = [...cc.toUpperCase()].map(c => c.charCodeAt() + OFFSET);
-  return String.fromCodePoint(...chars);
+  const codePoints = [...cc.toUpperCase()].map(c => c.codePointAt() + OFFSET);
+  return String.fromCodePoint(...codePoints);
+}
+
+/**
+ * convert flag emoji to corresponding country code
+ * @param {string} flag - flag emoji
+ * @returns {string} country code string
+ */
+export function emojiCountryCode(flag) {
+  if (flag.length !== FLAG_LENGTH) {
+    const type = typeof flag;
+    throw new TypeError(
+      `flag argument must be a flag emoji, but got '${
+        type === 'string' ? flag : type
+      }' instead.`,
+    );
+  }
+
+  const codePoints = [...flag].map(c => c.codePointAt() - OFFSET);
+  return String.fromCodePoint(...codePoints);
 }
 
 export default countryCodeEmoji;

@@ -25,21 +25,27 @@ yarn add country-code-emoji
 
 ```javascript
 // commonjs module
-const { default: flag } = require('country-code-emoji');
-flag('US'); // returns '🇺🇸'
+const { countryCodeEmoji, emojiCountryCode } = require('country-code-emoji');
+countryCodeEmoji('US'); // returns '🇺🇸'
+emojiCountryCode('🇺🇸'); // returns 'US'
 
 // es module
-import flag from 'country-code-emoji';
-['AE', 'CN', 'GB'].map(flag); // returns [ '🇦🇪', '🇨🇳', '🇬🇧' ]
+import { countryCodeEmoji, emojiCountryCode } from 'country-code-emoji';
+['AE', 'CN', 'GB'].map(countryCodeEmoji); // returns ['🇦🇪', '🇨🇳', '🇬🇧']
+['🇦🇪', '🇨🇳', '🇬🇧'].map(emojiCountryCode); // returns ['AE', 'CN', 'GB']
 ```
 
-this module exports a single function with the signature `flag(cc)`.
-`cc` should be atwo-character (case-insensitive) country code, and a `TypeError` will be thrown if it isn't.
+this module exports a pair of functions to convert country codes to/from flag emojis.
+the first is `countryCodeEmoji(cc)`.
+it accepts a two-character (case-insensitive) country code and throws a `TypeError` if anything else is passed.
 more specifically, `cc` is expected to be a [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
 to keep things simple, if `cc` a two letter string, but not an actual ISO 3166-1 alpha-2 code,
 the regional indicator symbols corresponding to the letters in `cc` are returned.
+the second is `emojiCountryCode(flag)`,
+which accepts a flag emoji and similarly throws a `TypeError` if anything else is passed.
 
 ```javascript
+// default export is countryCodeEmoji
 import flag from 'country-code-emoji';
 
 flag(); // throws TypeError
