@@ -1,15 +1,15 @@
 {
   "name": "country-code-emoji",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "convert country codes (ISO 3166-1 alpha-2) to corresponding emoji flags (unicode regional indicator symbols)",
   "main": "lib/index.js",
   "repository": "github:thekelvinliu/country-code-emoji",
   "author": "kelvin liu <kelvin@thekelvinliu.com>",
   "license": "MIT",
   "module": "src/index.js",
-  "types": "types/index.d.ts",
+  "types": "lib/index.d.ts",
   "exports": {
-    "import": "./src/index.js",
+    "import": "./lib/index.mjs",
     "require": "./lib/index.js"
   },
   "homepage": "https://github.com/thekelvinliu/country-code-emoji#readme",
@@ -17,8 +17,10 @@
     "url": "https://github.com/thekelvinliu/country-code-emoji/issues"
   },
   "scripts": {
-    "build": "esbuild src/index.js --format=cjs --outdir=lib --target=node10",
-    "clean": "rm -rf coverage lib types",
+    "build": "yarn build:cjs && yarn build:esm",
+    "build:cjs": "esbuild src/index.js --format=cjs --outdir=lib --target=node12",
+    "build:esm": "esbuild src/index.js --format=esm --outfile=lib/index.mjs --target=node12",
+    "clean": "rm -rf coverage lib",
     "lint": "eslint .",
     "prepublishOnly": "yarn build && yarn types",
     "reset": "rm -rf node_modules package-lock.json yarn.lock",
@@ -41,8 +43,7 @@
   },
   "files": [
     "lib",
-    "src",
-    "types"
+    "src"
   ],
   "keywords": [
     "country",
