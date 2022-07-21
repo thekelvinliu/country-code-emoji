@@ -9,8 +9,11 @@
   "module": "src/index.js",
   "types": "lib/index.d.ts",
   "exports": {
-    "import": "./lib/index.mjs",
-    "require": "./lib/index.js"
+    "./package.json": "./package.json",
+    ".": {
+      "require": "./lib/index.js",
+      "default": "./lib/index.mjs"
+    }
   },
   "homepage": "https://github.com/thekelvinliu/country-code-emoji#readme",
   "bugs": {
