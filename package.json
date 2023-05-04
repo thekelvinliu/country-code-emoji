@@ -10,7 +10,8 @@
   "types": "lib/index.d.ts",
   "exports": {
     "import": "./lib/index.mjs",
-    "require": "./lib/index.js"
+    "require": "./lib/index.js",
+    "types": "./lib/index.d.ts"
   },
   "homepage": "https://github.com/thekelvinliu/country-code-emoji#readme",
   "bugs": {
